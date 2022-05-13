@@ -41,15 +41,15 @@ optimizer = "SGD", metrics = ["accuracy"])
 ### Flask app
 Main page:
 
-![main page](C:\my\Python\leaf_ML_add\result_of_work_img\2022-03-05 223630.png)
+<img src = "https://github.com/Vvold/Recognition-of-Tree-Leaves/blob/master/result_of_work_img/2022-03-05%20223630.png" alt = "main page">
 
 Main page after uploading a photo:
 
-![download photo](C:\my\Python\leaf_ML_add\result_of_work_img\2022-03-05 224016.png)
+<img src = "https://github.com/Vvold/Recognition-of-Tree-Leaves/blob/master/result_of_work_img/2022-03-05%20224016.png" alt = "download photo">
 
 Main page with the output of the classification result:
 
-![prediction](C:\my\Python\leaf_ML_add\result_of_work_img\2022-03-05 224039.png)
+<img src = "https://github.com/Vvold/Recognition-of-Tree-Leaves/blob/master/result_of_work_img/2022-03-05%20224039.png" alt = "prediction">
 
 ## Contacts
 
