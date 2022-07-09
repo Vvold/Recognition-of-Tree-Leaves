@@ -2,6 +2,7 @@ from keras.models import load_model
 from keras.preprocessing.image import load_img
 from keras.preprocessing.image import img_to_array
 import pickle
+from PIL import Image, UnidentifiedImageError
 import numpy as np
 
 SIZE = 224
