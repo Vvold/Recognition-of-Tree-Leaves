@@ -40,7 +40,7 @@ optimizer = "SGD", metrics = ["accuracy"])
 
 ### Flask app
 
-To use the app you need to get a machine learning model. This can be done by running notebook 
+To use the app you need to get a machine learning model. This can be done by running notebook `model.ipynb`
 from the `recognition model` folder. After that, the `model.h5` file will appear in the `recognition model` folder. Now, you can use the app,
 you need to upload a photo to the search bar. Then the photo is preprocessed, classified and a message appears
 about the kind of tree to which the leaf belongs
@@ -58,6 +58,15 @@ Main page with the output of the classification result:
 
 <img src = "https://github.com/Vvold/Recognition-of-Tree-Leaves/blob/master/result_of_work_img/2022-03-05%20224039.png" alt = "prediction">
 
+## How to build ploject:
+Enter in the terminal:
+```
+pip install -r requirements. txt
+```
+then:
+```
+python main.py
+```
 ## Contacts
 
 ---
