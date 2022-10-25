@@ -1,7 +1,12 @@
+import numpy as np
+
 from PIL import UnidentifiedImageError
 from flask import Flask, render_template, request
+from src.load_data import Images
+from src.train import class_names, path_to_model, SIZE
+from keras.models import load_model
 
-from data_model import *
+model = load_model(f'{path_to_model}')
 
 app = Flask(__name__)
 
@@ -17,11 +22,11 @@ def predict():
     image_path = "./images/" + imagefile.filename
     try:
         imagefile.save(image_path)
-        image = img_preprocessing(image_path)
+        image, _ = Images().img_preprocessing(image_path=image_path, size=SIZE)
         predictions = model.predict(image)
         predictions = np.argmax(predictions)
-        classification = class_name[predictions]
-        return render_template('index.html', prediction=f"Kind of tree:{classification}")
+        classification = class_names[predictions]
+        return render_template('index.html', prediction=f'Kind of tree:{classification}')
     except UnidentifiedImageError:
         return render_template('index.html', prediction='The file is not an image')
     except PermissionError:
@@ -29,4 +34,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(port=8080, debug=True)
+    app.run(port=8087, debug=True)

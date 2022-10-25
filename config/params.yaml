@@ -1,0 +1,19 @@
+path:
+  load:
+    "dataleaf"
+  write:
+    "recognition model"
+
+images:
+  class_names:
+    {0: 'apple', 1: 'birch', 2: 'maple', 3: 'oak', 4: 'willow'}
+  SIZE:
+    100
+  limit_load:
+    10
+
+model:
+  model:
+    "recognition model/model.h5"
+  test_size:
+    0.2
