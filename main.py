@@ -2,7 +2,7 @@ import numpy as np
 
 from PIL import UnidentifiedImageError
 from flask import Flask, render_template, request
-from src.load_data import Images
+from src.data_processing import Images
 from src.train import class_names, path_to_model, SIZE
 from keras.models import load_model
 
@@ -22,7 +22,7 @@ def predict():
     image_path = "./images/" + imagefile.filename
     try:
         imagefile.save(image_path)
-        image, _ = Images().img_preprocessing(image_path=image_path, size=SIZE)
+        image, _ = Images(size=SIZE).image_to_array(path=image_path)
         predictions = model.predict(image)
         predictions = np.argmax(predictions)
         classification = class_names[predictions]

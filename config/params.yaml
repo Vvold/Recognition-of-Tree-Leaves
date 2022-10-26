@@ -1,10 +1,10 @@
 path:
-  load:
+  folder:
     "dataleaf"
-  write:
+  load:
     "recognition model"
 
-images:
+image:
   class_names:
     {0: 'apple', 1: 'birch', 2: 'maple', 3: 'oak', 4: 'willow'}
   SIZE:
@@ -13,7 +13,9 @@ images:
     10
 
 model:
-  model:
+  path_model:
     "recognition model/model.h5"
   test_size:
     0.2
+  epochs:
+    40

@@ -1,24 +1,23 @@
-import numpy as np
 import yaml
 
-from src.load_data import Images
-from src.model import load_train_data, fit_model, save_model
+from src.data_processing import Images
+from src.model import load_data, fit_model, save_model
 
-#
 config = yaml.safe_load(open("../config/params.yaml"))
-
-path_load = config['path']['load']
-path_write = config['path']['write']
-class_names = config['images']['class_names']
-SIZE = config['images']['SIZE']
-path_to_model = config['model']['model']
+data_folder = config['path']['folder']
+load_path = config['path']['load']
+class_names = config['image']['class_names']
+SIZE = config['image']['SIZE']
+limit_load = config['image']['limit_load']
+path_to_model = config['model']['path_model']
 test_size = config['model']['test_size']
+epochs = config['model']['epochs']
 
 if __name__ == "__main__":
-    # test_work = Images()
-    # X, y = test_work.data_img_pr eprocessing(path_load=path_load, class_name_dict=class_name_dict)
-    # test_work.save_data(X, y, path_write)
+    data = Images(SIZE)
+    images, targets = data.data_preparation(path=data_folder, class_names=class_names, limit_load=limit_load)
+    data.save_data(path=load_path, images=images, targets=targets)
 
-    X, y = load_train_data(path_write)
-    model = fit_model(size=SIZE, X=X, y=y, test_size=test_size)
-    save_model(model=model, path_to_model=path_write)
+    X, y = load_data(path=load_path)
+    model = fit_model(X=X, y=y, size=SIZE, test_size=test_size, epochs=epochs)
+    save_model(model=model, path=load_path)
